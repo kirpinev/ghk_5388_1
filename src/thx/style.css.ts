@@ -7,10 +7,11 @@ const container = style({
   alignItems: "center",
   padding: "0 1rem",
   textAlign: "center",
+  height: "100vh",
 });
 
 const rocket = style({
-  marginTop: "5rem",
+  // marginTop: "5rem",
 });
 
 export const thxSt = {
