@@ -85,7 +85,7 @@ export const App = () => {
                 color="secondary"
                 style={{ marginBottom: 0 }}
               >
-                Соберите финансы семьи в одном месте: до 10 участников к счету
+                Навсегда и без условий
               </Typography.Text>
             </div>
           </div>
