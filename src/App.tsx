@@ -11,8 +11,10 @@ import { appSt } from "./style.css";
 import { ThxLayout } from "./thx/ThxLayout";
 import { Gap } from "@alfalab/core-components/gap";
 import { useState } from "react";
+import { sendDataToGA } from "./utils/events.ts";
 
 export const App = () => {
+  const [loading, setLoading] = useState(false);
   const [thx, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
 
   const submit = () => {
@@ -20,8 +22,12 @@ export const App = () => {
       variant_name: "ghk_5388_1",
     });
 
-    setThx(true);
-    LS.setItem(LSKeys.ShowThx, true);
+    setLoading(true);
+    sendDataToGA({ option: "" }).then(() => {
+      setLoading(false);
+      setThx(true);
+      LS.setItem(LSKeys.ShowThx, true);
+    });
   };
 
   if (thx) {
@@ -148,7 +154,7 @@ export const App = () => {
       <Gap size={96} />
 
       <div className={appSt.bottomBtnThx}>
-        <ButtonMobile onClick={submit} block view="primary">
+        <ButtonMobile loading={loading} onClick={submit} block view="primary">
           К открытию счёта
         </ButtonMobile>
       </div>
