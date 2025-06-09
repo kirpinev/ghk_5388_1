@@ -5,6 +5,12 @@ import { appSt } from "../style.css.ts";
 import { ButtonMobile } from "@alfalab/core-components/button/mobile";
 
 export const ThxLayout = () => {
+  const submit = () => {
+    window.gtag("event", "5388_finish_click", {
+      variant_name: "ghk_5388_1",
+    });
+  };
+
   return (
     <>
       <div className={thxSt.container}>
@@ -33,6 +39,7 @@ export const ThxLayout = () => {
         <ButtonMobile
           block
           view="primary"
+          onClick={submit}
           href="alfabank:///multistep-route?fromModule=FORM&alias=card-order-alias&version=2&flowType=FAMILY_ACCOUNT"
         >
           Спасибо, понятно!
